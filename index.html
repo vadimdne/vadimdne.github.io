@@ -3,41 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CheeseWheelsApps</title>
+  <title>Cheese Wheels Apps</title>
   <link rel="icon" type="image/png" href="cheese-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#facc15'
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-  <header class="text-center py-10">
-    <h1 class="text-4xl font-bold">🧀 CheeseWheelsApps</h1>
-    <p class="text-lg mt-2 text-gray-400">We make wonderful apps.</p>
+  <header class="py-10 px-6">
+    <h1 class="text-4xl font-bold">🧀 Cheese Wheels Apps</h1>
+    <p class="text-lg mt-2 text-gray-400">We make wonderful apps!</p>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 grid gap-6">
+  <main class="max-w-6xl mx-auto px-4">
     <section>
       <h2 class="text-2xl font-semibold mb-4">Our Apps</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <a href="https://apps.apple.com/us/app/correct-me-ai-writing-helper/id6450414014" target="_blank" class="block bg-gray-800 hover:bg-gray-700 rounded-xl p-4 transition">
-          <h3 class="text-xl font-bold">Correct Me</h3>
-          <p class="text-gray-400 text-sm mt-1">AI Writing Helper</p>
-        </a>
-
-        <a href="https://apps.apple.com/us/app/email-writer-ai-text-generator/id6744062549" target="_blank" class="block bg-gray-800 hover:bg-gray-700 rounded-xl p-4 transition">
-          <h3 class="text-xl font-bold">Email Writer</h3>
-          <p class="text-gray-400 text-sm mt-1">AI Text Generator</p>
-        </a>
-
-        <a href="https://apps.apple.com/us/app/learn-spanish-with-ai/id6503248710" target="_blank" class="block bg-gray-800 hover:bg-gray-700 rounded-xl p-4 transition">
-          <h3 class="text-xl font-bold">Learn Spanish</h3>
-          <p class="text-gray-400 text-sm mt-1">with AI</p>
-        </a>
+      <div id="carousel" class="flex overflow-x-auto space-x-4 pb-4 relative">
+        <!-- App cards will be inserted here -->
+      </div>
+      <!-- Dot navigation now placed directly below the carousel -->
+      <div class="absolute bottom-2 left-0 right-0 text-center">
+        <span class="inline-block w-2 h-2 mx-1 rounded-full bg-gray-400"></span>
+        <span class="inline-block w-2 h-2 mx-1 rounded-full bg-gray-400"></span>
+        <span class="inline-block w-2 h-2 mx-1 rounded-full bg-gray-400"></span>
       </div>
     </section>
-  </main>
-
+  </main>  
+  
   <footer class="text-center text-gray-500 text-sm mt-16 mb-6">
     <p>&copy; 2025 CheeseWheelsApps. All rights reserved.</p>
-    <p class="mt-1">Contact: <a href="mailto:hello@cheesewheelsapps.com" class="underline">hello@cheesewheelsapps.com</a></p>
+    <p class="mt-1"><a id="email-link" href=# class="underline">Contact us</a></p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const email = "contact" + "@" + "cheesewheelsapps" + "." + "com";
+      const emailLink = document.getElementById('email-link');
+      emailLink.href = "mailto:" + email;
+      emailLink.textContent = "Contact us";
+    });
+  </script>
+
+  <script>
+    const appIds = [
+      '6450414014', // Correct me
+      '1586101858', // Badass Motivation
+      '6497330841' // Transcriber
+    ];
+
+    const carousel = document.getElementById('carousel');
+
+    async function fetchAppData(appId) {
+      const response = await fetch(`https://itunes.apple.com/lookup?id=${appId}`);
+      const data = await response.json();
+      return data.results[0];
+    }
+
+    async function displayApps() {
+      for (const id of appIds) {
+        const app = await fetchAppData(id);
+        if (!app) continue;
+
+        const card = document.createElement('div');
+        card.className = 'min-w-[260px] bg-gray-800 hover:bg-gray-700 rounded-xl p-6 flex-shrink-0';  // Increased padding
+
+        card.innerHTML = `
+          <h3 class="text-xl font-bold mb-6 truncate">${app.trackName}</h3>  <!-- Increased vertical space -->
+          <div class="flex space-x-2 overflow-hidden mb-6">  <!-- Increased vertical space -->
+            ${app.screenshotUrls.slice(0, 3).map(url => `<img src="${url}" class="h-40 rounded-lg">`).join('')}
+          </div>
+          <div class="flex justify-center mt-4">
+            <a href="${app.trackViewUrl}" target="_blank">
+              <img src="https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/raw/main/appstore-button.png" alt="Download on the App Store" class="w-48">
+            </a>
+          </div>
+        `;
+
+        carousel.appendChild(card);
+      }
+    }
+
+    displayApps();
+  </script>
 </body>
 </html>
