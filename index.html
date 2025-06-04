@@ -19,22 +19,20 @@
   </script>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-  <header class="py-10 px-6">
-    <h1 class="text-4xl font-bold">
-      <a href="index.html" class="text-inherit no-underline">
-        🧀 Cheese Wheels Apps
-      </a>
-    </h1>
-    <p class="text-lg mt-2 text-gray-400">We make wonderful apps!</p>
-  </header>
+  
+<!--- Header -->
+ <div id="header-placeholder"></div>
 
-  <main class="max-w-6xl mx-auto px-4">
+
+  <!-- <main class="max-w-6xl mx-auto px-4"> -->
+    <main class="max-w-6xl mx-auto px-6 py-8 space-y-8">
+
     <section>
       <h2 class="text-2xl font-semibold mb-4">Our Apps</h2>
       <div id="carousel" class="flex overflow-x-auto space-x-4 pb-4 relative">
         <!-- App cards will be inserted here -->
       </div>
-      <!-- Dot navigation now placed directly below the carousel -->
+      <!-- Dot navigation below the carousel -->
       <div class="absolute bottom-2 left-0 right-0 text-center">
         <span class="inline-block w-2 h-2 mx-1 rounded-full bg-gray-400"></span>
         <span class="inline-block w-2 h-2 mx-1 rounded-full bg-gray-400"></span>
@@ -43,25 +41,35 @@
     </section>
   </main>  
   
-<footer class="text-center text-gray-500 text-sm mt-16 mb-6">
-  <p>&copy; 2025 Cheese Wheels Apps OÜ. All rights reserved.</p>
-  <div class="mt-1 flex justify-center space-x-4">
-    <a id="email-link" href="#" class="underline">Contact us</a>
-    <a href="privacy.html" class="underline">Privacy Policy</a>
-    <a href="terms.html" class="underline">Terms & Conditions</a>
-  </div>
-</footer>
 
-  <!-- Basic email scrapping protection -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const email = "contact" + "@" + "cheesewheelsapps" + "." + "com";
-      const emailLink = document.getElementById('email-link');
-      emailLink.href = "mailto:" + email;
-      emailLink.textContent = "Contact us";
+<!--- Footer -->
+ <div id="footer-placeholder"></div>
+
+
+<!-- Header and Footer render -->
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
     });
-  </script>
 
+  // Load footer and then update year
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Now that footer is in DOM, update the year
+      const yearEl = document.getElementById("year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    });
+</script>
+
+  <!-- Fetching the content for carousel items -->
   <script>
     const appIds = [
       '6450414014', // Correct me
@@ -103,5 +111,6 @@
 
     displayApps();
   </script>
+
 </body>
 </html>

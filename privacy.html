@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy - Cheese Wheels Apps</title>
+  <title>Privacy - Cheese Wheels Apps</title>
+  <link rel="icon" type="image/png" href="cheese-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,15 +18,11 @@
     }
   </script>
 </head>
+
 <body class="bg-gray-900 text-white font-sans">
-  <header class="py-10 px-6">
-    <h1 class="text-4xl font-bold">
-      <a href="index.html" class="text-inherit no-underline">
-        🧀 Cheese Wheels Apps
-      </a>
-    </h1>
-    <p class="text-lg mt-2 text-gray-400">We make wonderful apps!</p>
-  </header>
+  
+<!--- Header -->
+ <div id="header-placeholder"></div>
 
   <main class="max-w-3xl mx-auto px-6 py-8 space-y-8">
     <section>
@@ -91,22 +88,32 @@
     </section>
   </main>
 
-  <footer class="text-center text-gray-500 text-sm mt-16 mb-6">
-    <p>&copy; 2025 Cheese Wheels Apps OÜ. All rights reserved.</p>
-    <div class="mt-1 flex justify-center space-x-4">
-      <a id="email-link" href="#" class="underline">Contact us</a>
-      <a href="privacy.html" class="underline">Privacy Policy</a>
-      <a href="terms.html" class="underline">Terms & Conditions</a>
-    </div>
-  </footer>
+<!--- Footer -->
+ <div id="footer-placeholder"></div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const email = "contact" + "@" + "cheesewheelsapps" + "." + "com";
-      const emailLink = document.getElementById('email-link');
-      emailLink.href = "mailto:" + email;
-      emailLink.textContent = "Contact us";
+
+<!-- Header and Footer render -->
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
     });
-  </script>
+
+  // Load footer and then update year
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Now that footer is in DOM, update the year
+      const yearEl = document.getElementById("year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    });
+</script>
+
 </body>
 </html>
