@@ -1,116 +1,252 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cheese Wheels Apps</title>
-  <link rel="icon" type="image/png" href="cheese-icon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#facc15'
-          }
-        }
-      }
-    }
-  </script>
-</head>
-<body class="bg-gray-900 text-white font-sans">
-  
-<!--- Header -->
- <div id="header-placeholder"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cheese Wheels Apps</title>
+        <meta
+            name="description"
+            content="Cheese Wheels Apps — indie iOS app studio. Explore our apps: Correct me, Badass Motivation, Transcriber, and more."
+        />
+        <meta property="og:title" content="Cheese Wheels Apps" />
+        <meta
+            property="og:description"
+            content="Indie iOS app studio creating simple, useful apps since 2015."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://cheesewheelsapps.com/" />
+        <link rel="icon" type="image/png" href="cheese-icon.png" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#facc15",
+                        },
+                    },
+                },
+            };
+        </script>
+    </head>
+    <body class="bg-gray-900 text-white font-sans">
+        <header
+            class="py-6 px-6 border-b border-gray-700 flex flex-col sm:flex-row sm:items-center sm:justify-between"
+        >
+            <div>
+                <h1 class="text-4xl font-bold">
+                    <a href="index.html" class="text-inherit no-underline"
+                        >🧀 Cheese Wheels Apps</a
+                    >
+                </h1>
+            </div>
+            <nav class="mt-4 sm:mt-0">
+                <ul class="flex space-x-6 text-sm text-gray-300">
+                    <li>
+                        <a href="about.html" class="hover:underline"
+                            >About us</a
+                        >
+                    </li>
+                    <li>
+                        <a href="privacy.html" class="hover:underline"
+                            >Privacy</a
+                        >
+                    </li>
+                    <li>
+                        <a href="terms.html" class="hover:underline">Terms</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="hover:underline"
+                            >Contact</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
+        <main class="max-w-6xl mx-auto px-6 py-8 space-y-8">
+            <section>
+                <h2 class="text-2xl font-semibold mb-4">Our Apps</h2>
+                <div id="carousel" class="flex overflow-x-auto space-x-4 pb-4">
+                    <div
+                        id="app-6450414014"
+                        class="min-w-[260px] max-w-[350px] bg-gray-800 hover:bg-gray-700 rounded-xl p-6 flex-shrink-0"
+                    >
+                        <h3 class="text-xl font-bold mb-6 truncate">
+                            Correct me: AI writing helper
+                        </h3>
+                        <div
+                            class="screenshots flex space-x-2 overflow-hidden mb-6"
+                        ></div>
+                        <p class="text-sm text-gray-400 mb-4">
+                            AI-powered grammar and spell checker with an
+                            innovative keyboard extension.
+                        </p>
+                        <div class="flex justify-center mt-4">
+                            <a
+                                href="https://apps.apple.com/us/app/correct-me-ai-writing-helper/id6450414014"
+                                target="_blank"
+                            >
+                                <img
+                                    src="appstore-button.png"
+                                    alt="Download Correct me on the App Store"
+                                    class="w-48"
+                                />
+                            </a>
+                        </div>
+                    </div>
 
-  <!-- <main class="max-w-6xl mx-auto px-4"> -->
-    <main class="max-w-6xl mx-auto px-6 py-8 space-y-8">
+                    <div
+                        id="app-1586101858"
+                        class="min-w-[260px] max-w-[350px] bg-gray-800 hover:bg-gray-700 rounded-xl p-6 flex-shrink-0"
+                    >
+                        <h3 class="text-xl font-bold mb-6 truncate">
+                            Badass Motivation
+                        </h3>
+                        <div
+                            class="screenshots flex space-x-2 overflow-hidden mb-6"
+                        ></div>
+                        <p class="text-sm text-gray-400 mb-4">
+                            Thousands of powerful inspirational quotes to keep
+                            your vibe high.
+                        </p>
+                        <div class="flex justify-center mt-4">
+                            <a
+                                href="https://apps.apple.com/us/app/badass-motivation/id1586101858"
+                                target="_blank"
+                            >
+                                <img
+                                    src="appstore-button.png"
+                                    alt="Download Badass Motivation on the App Store"
+                                    class="w-48"
+                                />
+                            </a>
+                        </div>
+                    </div>
 
-    <section>
-      <h2 class="text-2xl font-semibold mb-4">Our Apps</h2>
-      <div id="carousel" class="flex overflow-x-auto space-x-4 pb-4 relative">
-        <!-- App cards will be inserted here -->
-      </div>
-      <!-- Dot navigation below the carousel -->
-      <div class="absolute bottom-2 left-0 right-0 text-center">
-        <span class="inline-block w-2 h-2 mx-1 rounded-full bg-gray-400"></span>
-        <span class="inline-block w-2 h-2 mx-1 rounded-full bg-gray-400"></span>
-        <span class="inline-block w-2 h-2 mx-1 rounded-full bg-gray-400"></span>
-      </div>
-    </section>
-  </main>  
-  
+                    <div
+                        id="app-6497330841"
+                        class="min-w-[260px] max-w-[350px] bg-gray-800 hover:bg-gray-700 rounded-xl p-6 flex-shrink-0"
+                    >
+                        <h3 class="text-xl font-bold mb-6 truncate">
+                            Transcriber ゜
+                        </h3>
+                        <div
+                            class="screenshots flex space-x-2 overflow-hidden mb-6"
+                        ></div>
+                        <p class="text-sm text-gray-400 mb-4">
+                            Voice-to-text transcription for accessibility and
+                            professionals.
+                        </p>
+                        <div class="flex justify-center mt-4">
+                            <a
+                                href="https://apps.apple.com/us/app/transcriber/id6497330841"
+                                target="_blank"
+                            >
+                                <img
+                                    src="appstore-button.png"
+                                    alt="Download Transcriber on the App Store"
+                                    class="w-48"
+                                />
+                            </a>
+                        </div>
+                    </div>
 
-<!--- Footer -->
- <div id="footer-placeholder"></div>
+                    <div
+                        id="app-6754638147"
+                        class="min-w-[260px] max-w-[350px] bg-gray-800 hover:bg-gray-700 rounded-xl p-6 flex-shrink-0"
+                    >
+                        <h3 class="text-xl font-bold mb-6 truncate">
+                            Padel Speaker: Score Announcer
+                        </h3>
+                        <div
+                            class="screenshots flex space-x-2 overflow-hidden mb-6"
+                        >
+                            <img
+                                src="apps/screenshots/6754638147/Padel1.jpg"
+                                alt="Padel Speaker screenshot 1"
+                                class="h-40 rounded-lg"
+                            />
+                            <img
+                                src="apps/screenshots/6754638147/Padel2.jpg"
+                                alt="Padel Speaker screenshot 2"
+                                class="h-40 rounded-lg"
+                            />
+                            <img
+                                src="apps/screenshots/6754638147/Padel3.jpg"
+                                alt="Padel Speaker screenshot 3"
+                                class="h-40 rounded-lg"
+                            />
+                        </div>
+                        <p class="text-sm text-gray-400 mb-4">
+                            Live voice score announcements for padel, right from
+                            your Apple Watch.
+                        </p>
+                        <div class="flex justify-center mt-4">
+                            <a
+                                href="https://apps.apple.com/us/app/padel-speaker-score-announcer/id6754638147"
+                                target="_blank"
+                            >
+                                <img
+                                    src="appstore-button.png"
+                                    alt="Download Padel Speaker on the App Store"
+                                    class="w-48"
+                                />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
 
+        <footer class="text-center text-gray-500 text-sm mt-16 mb-6">
+            <p>
+                &copy; <span id="year"></span> Cheese Wheels Apps OÜ. All rights
+                reserved.
+            </p>
+            <div class="mt-1 flex justify-center space-x-4">
+                <a href="contact.html" class="underline">Contact us</a>
+                <a href="privacy.html" class="underline">Privacy Policy</a>
+                <a href="terms.html" class="underline"
+                    >Terms &amp; Conditions</a
+                >
+            </div>
+        </footer>
+        <script>
+            document.getElementById("year").textContent =
+                new Date().getFullYear();
+        </script>
 
-<!-- Header and Footer render -->
-<script>
-  // Load header
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-placeholder').innerHTML = data;
-    });
+        <script>
+            const appIds = ["6450414014", "1586101858", "6497330841", "6754638147"];
 
-  // Load footer and then update year
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
+            async function fetchAppData(appId) {
+                const response = await fetch("apps/" + appId + ".json");
+                const data = await response.json();
+                return data.results[0];
+            }
 
-      // Now that footer is in DOM, update the year
-      const yearEl = document.getElementById("year");
-      if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-      }
-    });
-</script>
+            async function displayApps() {
+                for (const id of appIds) {
+                    const app = await fetchAppData(id);
+                    if (!app) continue;
 
-  <!-- Fetching the content for carousel items -->
-  <script>
-    const appIds = [
-      '6450414014', // Correct me
-      '1586101858', // Badass Motivation
-      '6497330841' // Transcriber
-    ];
+                    const card = document.getElementById("app-" + id);
+                    if (!card) continue;
 
-    const carousel = document.getElementById('carousel');
+                    const screenshotContainer =
+                        card.querySelector(".screenshots");
+                    app.screenshotUrls.slice(0, 3).forEach(function (url) {
+                        const img = document.createElement("img");
+                        img.src = url;
+                        img.alt = app.trackName + " screenshot";
+                        img.className = "h-40 rounded-lg";
+                        screenshotContainer.appendChild(img);
+                    });
+                }
+            }
 
-    async function fetchAppData(appId) {
-      const response = await fetch(`apps/${appId}.json`);
-      const data = await response.json();
-      return data.results[0];
-    }
-
-    async function displayApps() {
-      for (const id of appIds) {
-        const app = await fetchAppData(id);
-        if (!app) continue;
-
-        const card = document.createElement('div');
-        card.className = 'min-w-[260px] bg-gray-800 hover:bg-gray-700 rounded-xl p-6 flex-shrink-0';  // Increased padding
-
-        card.innerHTML = `
-          <h3 class="text-xl font-bold mb-6 truncate">${app.trackName}</h3>  <!-- Increased vertical space -->
-          <div class="flex space-x-2 overflow-hidden mb-6">  <!-- Increased vertical space -->
-            ${app.screenshotUrls.slice(0, 3).map(url => `<img src="${url}" class="h-40 rounded-lg">`).join('')}
-          </div>
-          <div class="flex justify-center mt-4">
-            <a href="${app.trackViewUrl}" target="_blank">
-              <img src="appstore-button.png" alt="Download on the App Store" class="w-48">
-            </a>
-          </div>
-        `;
-
-        carousel.appendChild(card);
-      }
-    }
-
-    displayApps();
-  </script>
-
-</body>
+            displayApps();
+        </script>
+    </body>
 </html>

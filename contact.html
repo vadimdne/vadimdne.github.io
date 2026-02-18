@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - Cheese Wheels Apps</title>
+  <meta name="description" content="Get in touch with Cheese Wheels Apps. Contact us by email and find answers to common questions.">
+  <meta property="og:title" content="Contact - Cheese Wheels Apps">
+  <meta property="og:description" content="Get in touch with Cheese Wheels Apps. Contact us by email and find answers to common questions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cheesewheelsapps.com/contact.html">
   <link rel="icon" type="image/png" href="cheese-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -18,15 +23,28 @@
     }
   </script>
 </head>
+
 <body class="bg-gray-900 text-white font-sans">
 
-  <!--- Header -->
- <div id="header-placeholder"></div>
+  <header class="py-6 px-6 border-b border-gray-700 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <h1 class="text-4xl font-bold">
+        <a href="index.html" class="text-inherit no-underline">🧀 Cheese Wheels Apps</a>
+      </h1>
+    </div>
+    <nav class="mt-4 sm:mt-0">
+      <ul class="flex space-x-6 text-sm text-gray-300">
+        <li><a href="about.html" class="hover:underline">About us</a></li>
+        <li><a href="privacy.html" class="hover:underline">Privacy</a></li>
+        <li><a href="terms.html" class="hover:underline">Terms</a></li>
+        <li><a href="contact.html" class="hover:underline">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- Contact Page -->
 <main class="max-w-3xl mx-auto p-6">
   <h1 class="text-3xl font-bold mb-4">Contact Us</h1>
-  <p>You can reach us by <a id="email-link" href="#" class="underline">[email protected]</a></p>
+  <p>You can reach us by <a id="email-link" href="#" class="underline">email</a></p>
 
   <hr class="my-8 border-gray-700">
 
@@ -34,57 +52,38 @@
   <ul class="space-y-4">
     <li>
       <strong>How to cancel my iOS subscription?</strong><br>
-      Your iPhone and iPad app subscriptions are managed by Apple. Here is Apple's guide on how you can review and cancel your subscription: <a href="https://support.apple.com/en-us/HT202039" class="underline">https://support.apple.com/en-us/HT202039</a> 
+      Your iPhone and iPad app subscriptions are managed by Apple. Here is Apple's guide on how you can review and cancel your subscription: <a href="https://support.apple.com/en-us/HT202039" class="underline">https://support.apple.com/en-us/HT202039</a>
 
     </li>
     <li>
       <strong>I found a bug. What should I do?</strong><br>
-      Firstly, please make sure you use the latest app version from the Appstore. If the issue persists, please email us with steps to reproduce it. 
+      Firstly, please make sure you use the latest app version from the Appstore. If the issue persists, please email us with steps to reproduce it.
     </li>
     <li>
       <strong>Do you collect my personal data?</strong><br>
-      No, we do not collect personal data through our apps. Here you can lear more about our <a href="privacy.html" class="underline">privacy policy</a> .
+      No, we do not collect personal data through our apps. Here you can learn more about our <a href="privacy.html" class="underline">privacy policy</a> .
     </li>
   </ul>
 </main>
 
-<!--- Footer -->
- <div id="footer-placeholder"></div>
+  <footer class="text-center text-gray-500 text-sm mt-16 mb-6">
+    <p>&copy; <span id="year"></span> Cheese Wheels Apps OÜ. All rights reserved.</p>
+    <div class="mt-1 flex justify-center space-x-4">
+      <a href="contact.html" class="underline">Contact us</a>
+      <a href="privacy.html" class="underline">Privacy Policy</a>
+      <a href="terms.html" class="underline">Terms &amp; Conditions</a>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 
-
-<!-- Header and Footer render -->
 <script>
-  // Load header
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-placeholder').innerHTML = data;
-    });
-
-  // Load footer and then update year
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-
-      // Now that footer is in DOM, update the year
-      const yearEl = document.getElementById("year");
-      if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-      }
-    });
+  document.addEventListener('DOMContentLoaded', function() {
+    var u = "contact"; var d = "cheesewheelsapps.com";
+    var emailLink = document.getElementById('email-link');
+    emailLink.href = "mailto:" + u + "@" + d;
+    emailLink.textContent = "email";
+  });
 </script>
-
-<!-- Basic email protection -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const email = "contact" + "@" + "cheesewheelsapps" + "." + "com";
-      const emailLink = document.getElementById('email-link');
-      emailLink.href = "mailto:" + email;
-      emailLink.textContent = "email";
-    });
-  </script>
 
 </body>
 </html>
-

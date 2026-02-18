@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy - Cheese Wheels Apps</title>
+  <meta name="description" content="Privacy policy for Cheese Wheels Apps. Our apps do not collect or store personal information.">
+  <meta property="og:title" content="Privacy Policy - Cheese Wheels Apps">
+  <meta property="og:description" content="Privacy policy for Cheese Wheels Apps. Our apps do not collect or store personal information.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cheesewheelsapps.com/privacy.html">
   <link rel="icon" type="image/png" href="cheese-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -20,9 +25,22 @@
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
-  
-<!--- Header -->
- <div id="header-placeholder"></div>
+
+  <header class="py-6 px-6 border-b border-gray-700 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <h1 class="text-4xl font-bold">
+        <a href="index.html" class="text-inherit no-underline">🧀 Cheese Wheels Apps</a>
+      </h1>
+    </div>
+    <nav class="mt-4 sm:mt-0">
+      <ul class="flex space-x-6 text-sm text-gray-300">
+        <li><a href="about.html" class="hover:underline">About us</a></li>
+        <li><a href="privacy.html" class="hover:underline">Privacy</a></li>
+        <li><a href="terms.html" class="hover:underline">Terms</a></li>
+        <li><a href="contact.html" class="hover:underline">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="max-w-3xl mx-auto px-6 py-8 space-y-8">
     <section>
@@ -53,7 +71,7 @@
     <section>
       <h2 class="text-2xl font-semibold mb-4">Data Security</h2>
       <p>Some Apps developed by the Developer, including but not limited to <strong>"Aurora: AI Psychic Readings"</strong> and <strong>"Correct me: AI writing helper"</strong>, allow a user to input data via the app or the keyboard extension.</p>
-      <p class="mt-4">The user input data (including the input through the keyboard extension) is used solely for the App’s functional purpose (e.g. text editing or grammar checking). The Apps are designed to not log, store, or retain any of the data you input. Once the text processing is completed, any data temporarily held in App memory is discarded.</p>
+      <p class="mt-4">The user input data (including the input through the keyboard extension) is used solely for the App's functional purpose (e.g. text editing or grammar checking). The Apps are designed to not log, store, or retain any of the data you input. Once the text processing is completed, any data temporarily held in App memory is discarded.</p>
       <p class="mt-4">The user input data may be transmitted directly to third-party service APIs (such as OpenAI's API) over a secure HTTPS connection. The Developer has no access to this data, as the transmission happens directly from the client device to the API. Such transmissions are made in real-time. No records of the original text and/or the corrections are kept.</p>
       <p class="mt-4">
         OpenAI privacy policy and terms of use:<br>
@@ -88,32 +106,15 @@
     </section>
   </main>
 
-<!--- Footer -->
- <div id="footer-placeholder"></div>
-
-
-<!-- Header and Footer render -->
-<script>
-  // Load header
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-placeholder').innerHTML = data;
-    });
-
-  // Load footer and then update year
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-
-      // Now that footer is in DOM, update the year
-      const yearEl = document.getElementById("year");
-      if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-      }
-    });
-</script>
+  <footer class="text-center text-gray-500 text-sm mt-16 mb-6">
+    <p>&copy; <span id="year"></span> Cheese Wheels Apps OÜ. All rights reserved.</p>
+    <div class="mt-1 flex justify-center space-x-4">
+      <a href="contact.html" class="underline">Contact us</a>
+      <a href="privacy.html" class="underline">Privacy Policy</a>
+      <a href="terms.html" class="underline">Terms &amp; Conditions</a>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 
 </body>
 </html>
